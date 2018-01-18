@@ -45,7 +45,7 @@
 	width: 320px;
 	border-radius: 25px;
 	border: 1px solid #eaaa00;
-	margin-top: 0px;
+	margin-top: 10px;
 	-webkit-filter: drop-shadow(5px 5px 2px #545454);
 	filter: drop-shadow(5px 5px 5px #545454);
     }
@@ -67,6 +67,14 @@
 	
 	</style>
 	<script>
+	
+function myFunction() {
+    var x = document.getElementById("map");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    }
+}
+	
 var map;
 
 function initMap() {
@@ -98,8 +106,8 @@ function initMap() {
 
     service.nearbySearch({
       bounds: bounds,
-      type: ['restaurant'],
-	  keyword: ['coffee, -starbucks']
+      type: ['cafe'],
+	  keyword: "(espresso) OR (pour%22over)"
     }, callback);
   });
 	var infowindow = new google.maps.InfoWindow();
@@ -146,20 +154,20 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 <!-- 			<form>
  <div class="form-group">
-    <label for="city">Enter the name of a city or to find one near your location, just press "Let's Go!".</label>
+    <label for="city">Enter the name of a city or to find one near your location, just press "Find me a Local Mug!".</label>
     <input type="text" class="form-control" name="address" id="address" placeholder="e.g. London, New York, Singapore" value = "San Francisco, CA">
+	</form>
   </div>
-
-  
-  <button onclick="getLocation()" type="submit" value="Geocode" class="btn btn-success">Let's Go!</button>
-</form>
-
 -->
+  
+  <button onclick="myFunction()" type="submit" class="btn btn-success">Click ME to find a Local Coffee Shop!</button>
+
+
 		</div>
 
 		<div class="container">
 		
-		<div class="map" id="map"></div>
+		<div class="map" id="map" style="display:none;"></div>
 		</div>
 
 	
