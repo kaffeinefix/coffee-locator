@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
 	<title>Local Mugs</title>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbKimdKTnqXEzAOgwCiicPW7cju9Qohf0&libraries=geometry,places&callback=initMap"> </script>
@@ -73,7 +73,7 @@ function displayMap()
     document.getElementById( 'map' ).style.display = "block";
     initMap();
 }
-	
+google.maps.event.trigger(map, "resize");	
 var map;
 
 function initMap() {
@@ -140,7 +140,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-
+google.maps.event.trigger(map, 'resize');
+	  
 </script>
   </head>
   <body>
